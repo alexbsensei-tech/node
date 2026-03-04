@@ -1,39 +1,37 @@
-const express = require("express");
-const path = require("path");
+const express = require("express"); // express framework
+const path = require("path"); // path module
 const app = express();
 const PORT = 3000;
 
-// A — simple in-memory user store
-// хранилище пользователей в памяти
-const users = {
-  alex: { password: "1234", role: "admin" },
-  sveta: { password: "pass", role: "editor" },
-  john: { password: "qwerty", role: "viewer" }
-};
-
-// Middleware
-// Промежуточное программное обеспечение
+// MIDDLEWARE - Промежуточное программное обеспечение
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// B — login route
-// маршрут входа в систему
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  const user = users[username];
+// ROUTE MOUNTS - Закрепление маршрутов
+const seacraftsRoute = require("./routes/seacrafts");
+const usersRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
+const statusRoute = require("./routes/status");
+const headerRoute = require("./routes/header");
+const avatarRoutes = require("./routes/avatar");
+const createUserRoute = require("./routes/createUser");
+const testsRoute = require("./routes/tests");
+const supplementsRoute = require("./routes/supplements");
+const footerRoute = require("./routes/footer");
 
-  if (user && user.password === password) {
-    return res.json({ 
-      success: true,
-      role: user.role, 
-      message: "Login successful" 
-    });
-  }
+app.use("/seacrafts", seacraftsRoute); // Mount seacrafts route - Закрепить маршрут морских судов
+app.use("/users", usersRoute); // Mount users route - Закрепить маршрут пользователей
+app.use("/", authRoute); // Mount auth route - Закрепить маршрут аутентификации
+app.use("/status", statusRoute); // Mount status route - Закрепить маршрут статуса  
+app.use("/header", headerRoute); // Mount header route - Закрепить маршрут заголовка
+app.use("/", avatarRoutes); // Mount avatar upload route - Закрепить маршрут загрузки аватара
+app.use("/", createUserRoute); // Mount create user route - Закрепить маршрут создания пользователя
+app.use("/tests", testsRoute); // Mount tests route - Закрепить маршрут тестов
+app.use("/supplements", supplementsRoute); // Mount supplements route - Закрепить маршрут добавок
+app.use("/footer", footerRoute); // Mount footer route - Закрепить маршрут подвала
 
-  res.json({ success: false, message: "Invalid username or password" });
-});
-
+// Start server - запуск сервера
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });

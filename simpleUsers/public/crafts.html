@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sea Crafts</title>
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/crafts.css">
+  <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <div id="header" class="header">
+    <div class="header-left" id="header-left"></div>
+    <div class="header-right" id="header-right"></div>
+  </div>
+  <!-- header ends -->
+
+  <h2>List of Sea Crafts</h2>
+  <ul id="craftList"></ul>
+
+  <!-- Footer Section -->
+  <footer id="footer" class="footer"></footer>
+  <!-- footer ends -->
+
+  <script type="module">
+    import { loadHeader } from "/js/header.js";
+    import { loadCrafts } from "/js/crafts.js";
+    import { loadFooter } from "/js/footer.js";
+
+    loadHeader();
+    loadCrafts();
+    loadFooter();
+  </script>
+</body>
+</html>

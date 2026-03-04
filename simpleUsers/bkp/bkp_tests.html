@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Психологические тесты</title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/stylesHome.css">
+  <link rel="stylesheet" href="css/header.css">
+  <script src="js/scripts.js"></script>
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <div id="header" class="header">
+    <div class="header-left" id="header-left"></div>
+    <div class="header-right" id="header-right"></div>
+  </div> 
+  <!-- header ends -->
+
+  <h1>Пройдите психологические тесты</h1>
+  
+  <div class="button-grid">
+    <p>Узнайте что вы скрываете даже от самого себя? Ответьте на несколько вопросов —
+    результат может вас удивить!</p>
+  </div>
+  
+
+  <div class="button-grid">
+    <div class="button-card"><a id="buttonOne" href="#" target="_blank" rel="noopener noreferrer">Cамооткрытие</a></div>
+    <div class="button-card"><a id="buttonTwo" href="#" target="_blank" rel="noopener noreferrer">Психо-устойчивость</a></div>
+    <div class="button-card"><a id="buttonThree" href="#" target="_blank" rel="noopener noreferrer">Отношения</a></div>
+    <div class="button-card"><a id="buttonFour" href="#" target="_blank" rel="noopener noreferrer">Кровожадность</a></div>
+    <div class="button-card"><a id="buttonFive" href="#" target="_blank" rel="noopener noreferrer">Разделение Личности</a></div>
+    <div class="button-card"><a id="buttonSix" href="#" target="_blank" rel="noopener noreferrer">Паранойя</a></div>
+    <div class="button-card"><a id="buttonSeven" href="#" target="_blank" rel="noopener noreferrer">Адекватность</a></div>
+    <div class="button-card"><a id="buttonEight" href="#" target="_blank" rel="noopener noreferrer">Сверхъестественное</a></div>
+    <div class="button-card"><a id="buttonNine" href="#" target="_blank" rel="noopener noreferrer">Пси Возраст</a></div>
+    <div class="button-card"><a id="buttonTen" href="#" target="_blank" rel="noopener noreferrer">Логика</a></div>
+    <div class="button-card"><a id="buttonEleven" href="#" target="_blank" rel="noopener noreferrer">Эмоциональный Интеллект</a></div>
+    <div class="button-card"><a id="buttonTwelve" href="#" target="_blank" rel="noopener noreferrer">Аддикция</a></div> 
+  </div>
+ 
+  <footer class = "footer-content">
+    <nav id = "footer" class="footer-nav"></nav>
+    <span id = "copyRight"></span>
+  </footer>
+
+<!--  <script>
+    // Store the URL in a variable
+    //const formUrl = "https://script.google.com/macros/s/AKfycbzlCDgVVAQmTGoAGw1mtPBNtkBilwOBRQkESqTrAxeadsiZS9rw1ED_yWMUiY9RpHeAaA/exec?page=";
+    const formUrl = "https://script.google.com/macros/s/AKfycby8VFoblNNsBlkHWTjAvXeiCMb8So6A_BiwL4vaU8WciEd2Mt4QCIuJwIwuqTRbOdi9Kw/exec?page=";
+    // Assign it to the href dynamically
+    buttonOne.href = formUrl + "form"; // document.getElementById("buttonOne").href = formUrl + "form";
+    buttonTwo.href = formUrl + "psycho";
+    buttonThree.href = formUrl + "jealousy";
+    buttonFour.href = formUrl + "sadism";
+    buttonFive.href = formUrl + "split";
+    buttonSix.href = formUrl + "paranoia"; 
+    buttonSeven.href = formUrl + "adequacy"; 
+    buttonEight.href = formUrl + "supernatural";
+    buttonNine.href = formUrl + "psychage";
+    buttonTen.href = formUrl + "logics";
+    buttonEleven.href = formUrl + "ei";
+    buttonTwelve.href = formUrl + "addiction";
+    header.innerHTML = menus.menuMaker(menus.header);  
+    footer.innerHTML = menus.menuMaker(menus.footer);
+    copyRight.innerHTML = menus.copyRight();
+  </script>-->
+    <script type="module">
+      import { loadHeader } from "/js/header.js";
+      //import { checkAccess } from "/js/checkAdminAccess.js";
+      //import { initAdminPanel } from "/js/adminPanel.js";
+     // import { initUserCreation } from "/js/createUser.js";
+
+      loadHeader();
+      //checkAccess(); 
+     // initAdminPanel();
+     // initUserCreation();
+  </script>
+</body>
+</html>

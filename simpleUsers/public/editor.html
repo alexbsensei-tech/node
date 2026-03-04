@@ -1,1 +1,26 @@
-This is editor page. Only accessible to users with the 'editor' role.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Page</title>
+</head>
+<body>
+    <h2>This is Editor page. Only accessible to users with the 'editor' role.</h2>
+    <button onclick="logout()">Logout</button>
+
+</body>
+<script>
+  const role = localStorage.getItem("role");
+
+  if (role !== "editor") {
+    alert("Access denied. Redirecting to login page.");
+    window.location.href = "/index.html";
+  }
+  function logout() {
+    localStorage.removeItem("role");
+    window.location.href = "/index.html";
+  }
+
+</script>
+</html>

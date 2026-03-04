@@ -3,56 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Simple Login</title>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-  <h2>Login</h2>
-
-  <form id="loginForm">
-    <input type="text" name="username" placeholder="Username" required /><br><br>
-    <input type="password" name="password" placeholder="Password" required /><br><br>
-    <button type="submit">Log In</button>
-  </form>
-
-  <p id="result"></p>
-
-  <script>
-  const form = document.getElementById("loginForm");
-  const result = document.getElementById("result");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-
-    const res = await fetch("/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-
-    const json = await res.json();
-
-    if (json.success) {
-      // Role-based redirects
-      switch (json.role) {
-        case "admin":
-          window.location.href = "/admin.html";
-          break;
-        case "editor":
-          window.location.href = "/editor.html";
-          break;
-        case "viewer":
-          window.location.href = "/viewer.html";
-          break;
-        default:
-          window.location.href = "/dashboard.html";
-      }
-    } else {
-      result.textContent = json.message;
-      result.style.color = "red";
-    }
-  });
-  </script>
+  <div class="login-container">
+    <h2>Sign In</h2>
+    <form id="login-box" class="login-box">
+      <input id="username" type="text" placeholder="Username">
+      <input id="password" type="password" placeholder="Password">
+      <button type="submit">Login</button>
+      <p id="login-result"></p>
+    </form>
+  </div>
+ <script type="module">
+  import { initLogin } from "/js/login.js";
+  initLogin();
+</script>
 </body>
 </html>

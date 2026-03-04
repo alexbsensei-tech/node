@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/supplements.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/stylesHome.css">
+    <title>Supplements</title>
+</head>
+<body>
+    <div class="button-grid">
+        <h1>Supplements List</h1>
+        <p>Узнайте о различных добавках, которые могут улучшить ваше здоровье и благополучие.</p>
+    </div>
+
+  <table id="supplementsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Serving Size</th>
+        <th>Link</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+</body>
+<script type = "module">
+    import { loadSupplements } from './js/supplements.js';
+    loadSupplements();
+</script>
+</html>
