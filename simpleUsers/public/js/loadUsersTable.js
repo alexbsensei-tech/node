@@ -1,4 +1,4 @@
-export async function loadUsers(token) {
+export async function loadUsersTable(token) {
     const res = await fetch("/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

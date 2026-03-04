@@ -1,4 +1,4 @@
-import { loadUsers } from "/js/loadUsers.js";
+import { loadUsersTable } from "/js/loadUsersTable.js";
 export function initAdminPanel() {
   const modal = document.getElementById("passwordModal"); 
   const closeBtn = document.getElementById("closePasswordModal");
@@ -8,7 +8,7 @@ export function initAdminPanel() {
   const token = localStorage.getItem("authToken");
 
   // Load users first
-  loadUsers(token).then(() => {
+  loadUsersTable(token).then(() => {
     // Attach event listeners to dynamically created password buttons
     document.querySelectorAll(".changePasswordBtn").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -68,15 +68,13 @@ export function initAdminPanel() {
 
   // Submit delete user
   delUserBtn.addEventListener("click", async () => {
-    const payload = {
-      token,
-      username: document.getElementById("deleteUsername").value
-    };
+    const token = localStorage.getItem("authToken");
+    const username = document.getElementById("deleteUsername").value;
 
-    const res = await fetch("/users/delete", {
+    const res = await fetch("/users/delete/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({ token, username })
     });
 
     const json = await res.json();

@@ -3,11 +3,13 @@ const express = require("express");
 const router = express.Router();
 const users = require("../data/users");
 const { verifyToken } = require("../utils/auth");
+const { loadUsers, saveUsers } = require("../utils/userStore");
 
 // Users route (admin only) - маршрут пользователей (только для администраторов)
 router.post("/", (req, res) => {
   const { token } = req.body; // Get token from request body - Получить токен из тела запроса
   const valid = verifyToken(token);
+  const users = loadUsers(); // Load users from file - Загрузить пользователей из файла
 
   if (!valid || valid.role !== "admin") {
     return res.status(403).json({ error: "Forbidden" });
@@ -15,9 +17,6 @@ router.post("/", (req, res) => {
 
   res.json(users);
 });
-
-
-const { loadUsers, saveUsers } = require("../utils/userStore");
 
 router.post("/change-password", (req, res) => {
   const { token, username, newPassword } = req.body;
@@ -27,7 +26,7 @@ router.post("/change-password", (req, res) => {
     return res.status(403).json({ error: "Forbidden" });
   }
 
-  const users = loadUsers();
+  const users = loadUsers(); // Load users from file
 
   if (!users[username]) {
     return res.status(404).json({ error: "User not found" });

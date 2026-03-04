@@ -19,6 +19,7 @@ const createUserRoute = require("./routes/createUser");
 const testsRoute = require("./routes/tests");
 const supplementsRoute = require("./routes/supplements");
 const footerRoute = require("./routes/footer");
+const deleteUserRoute = require("./routes/deleteUser");
 
 app.use("/seacrafts", seacraftsRoute); // Mount seacrafts route - Закрепить маршрут морских судов
 app.use("/users", usersRoute); // Mount users route - Закрепить маршрут пользователей
@@ -30,6 +31,7 @@ app.use("/", createUserRoute); // Mount create user route - Закрепить �
 app.use("/tests", testsRoute); // Mount tests route - Закрепить маршрут тестов
 app.use("/supplements", supplementsRoute); // Mount supplements route - Закрепить маршрут добавок
 app.use("/footer", footerRoute); // Mount footer route - Закрепить маршрут подвала
+app.use("/", deleteUserRoute); // Mount delete user route - Закрепить маршрут удаления пользователя
 
 // Start server - запуск сервера
 app.listen(PORT, () => {
