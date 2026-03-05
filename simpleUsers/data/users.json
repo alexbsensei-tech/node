@@ -1,0 +1,46 @@
+{
+  "alex": {
+    "password": "1234",
+    "role": "admin",
+    "firstName": "Alex",
+    "lastName": "Sensei",
+    "email": "alexsensei@mail.com",
+    "description": "Admin of the system",
+    "avatar": "/avatars/8c760b005db58b188c1e65c4abab2807"
+  },
+  "sveta": {
+    "password": "pass",
+    "role": "editor"
+  },
+  "john": {
+    "password": "qwerty",
+    "role": "viewer"
+  },
+  "mobus": {
+    "password": "1234",
+    "role": "editor",
+    "firstName": "Frank",
+    "lastName": "Cobin",
+    "email": "frank@email.com",
+    "description": "Guest user",
+    "avatar": null
+  },
+  "trump": {
+    "password": "1234567",
+    "role": "viewer",
+    "firstName": "don",
+    "lastName": "trump",
+    "email": "dontrump@yahoo.com",
+    "description": "forker",
+    "avatar": null
+  },
+  "musk": {
+    "password": "1234567",
+    "role": "viewer",
+    "firstName": "elon",
+    "lastName": "musk",
+    "email": "musk@twitter.com",
+    "description": "chip",
+    "avatar": null
+  }
+}
